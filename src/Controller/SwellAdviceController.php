@@ -47,26 +47,5 @@ class SwellAdviceController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/testimonials", name="testimonials")
-     */
-    public function testimonials_form(Request $requetteHttp, ObjectManager $manager)
-    {
-        $testimonials = new Testimonials();
 
-        $testimonialsForm = $this->createForm(TestimonialsType::class,$testimonials);
-
-        $testimonialsForm->handleRequest($requetteHttp);
-
-        if($testimonialsForm->isSubmitted() && $testimonialsForm->isValid()){
-
-            $manager->persist($testimonials);
-            $manager->flush();
-
-            return $this->redirectToRoute('index');
-
-        }
-
-        return $this->render('swell_advice/testimonialsForm.html.twig',['testimonialsFormView' => $testimonialsForm->createView()]);
-    }
 }
