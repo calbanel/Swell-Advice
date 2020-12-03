@@ -9,12 +9,38 @@ use Symfony\Component\Routing\Annotation\Route;
 class SwellAdviceController extends AbstractController
 {
     /**
-     * @Route("/swell/advice", name="swell_advice")
+     * @Route("/", name="index")
      */
     public function index(): Response
     {
         return $this->render('swell_advice/index.html.twig', [
             'controller_name' => 'SwellAdviceController',
+        ]);
+    }
+
+    /**
+     * @Route("/spot/{id}", name="spot")
+     */
+    public function spot($id)
+    {
+      $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
+      $spot = $repositorySpot->findByApiSpotId($id);
+
+        return $this->render('swell_advice/spot.html.twig', [
+            'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
+        ]);
+    }
+
+    /**
+     * @Route("/spot/{id}/details", name="spot_details")
+     */
+    public function spot($id)
+    {
+      $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
+      $spot = $repositorySpot->findByApiSpotId($id);
+
+        return $this->render('swell_advice/spotdetails.html.twig', [
+            'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
         ]);
     }
 }
