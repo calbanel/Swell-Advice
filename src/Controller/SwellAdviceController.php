@@ -34,7 +34,7 @@ class SwellAdviceController extends AbstractController
     /**
      * @Route("/spot/{id}/details", name="spot_details")
      */
-    public function spot($id)
+    public function spot_details($id)
     {
       $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
       $spot = $repositorySpot->findByApiSpotId($id);
