@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SwellAdviceController!{% endblock %}
-
 {% block body %}
 <center>
     <img src="{{ asset('img/logo2.png') }}" alt="logo">
@@ -11,17 +9,17 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
+<title id="Title">Swell Advice</title>
 
-<div class="SpotTitle">
+<div class="searchDiv">
     <center>
         <h2>Recherchez votre spot</h2>
-        <label for="searchBar"> 
+        <label for="searchBar">Recherche...</label>
     </center>
 </div>
 
+<center>
 <button type="button" class="btn btn-info">Renseigez-vous</button>
+</center>
 
 {% endblock %}
