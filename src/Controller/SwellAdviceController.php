@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\SpotRepository;
 use App\Entity\Spot;
-
 use Doctrine\Common\Persistence\ObjectManager;
 
 class SwellAdviceController extends AbstractController
@@ -69,4 +68,5 @@ class SwellAdviceController extends AbstractController
         }
 
         return $this->render('swell_advice/testimonialsForm.html.twig',['testimonialsFormView' => $testimonialsForm->createView()]);
+    }
 }
