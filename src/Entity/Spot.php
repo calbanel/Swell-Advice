@@ -69,12 +69,12 @@ class Spot
 
     public function getLatitude(): ?string
     {
-        return $this->lat;
+        return $this->latitude;
     }
 
     public function setLatitude(string $lat): self
     {
-        $this->lat = $lat;
+        $this->latitude = $latitude;
 
         return $this;
     }

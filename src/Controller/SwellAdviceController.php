@@ -5,7 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\Spot;
+use App\Repository\SpotRepository;
+use App\Entity\Spot;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class SwellAdviceController extends AbstractController
@@ -26,7 +27,7 @@ class SwellAdviceController extends AbstractController
     public function spot($id)
     {
       $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
-      $spot = $repositorySpot->findBy($id);
+      $spot = $repositorySpot->find($id);
 
         return $this->render('swell_advice/spot.html.twig', [
             'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
@@ -39,7 +40,7 @@ class SwellAdviceController extends AbstractController
     public function spot_details($id)
     {
       $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
-      $spot = $repositorySpot->findBy($id);
+      $spot = $repositorySpot->find($id);
 
         return $this->render('swell_advice/spotdetails.html.twig', [
             'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
