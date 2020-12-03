@@ -10,6 +10,7 @@ use App\Entity\Spot;
 use App\Repository\TestimonialsRepository;
 use App\Entity\Testimonials;
 use App\Form\TestimonialsType;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class SwellAdviceController extends AbstractController
