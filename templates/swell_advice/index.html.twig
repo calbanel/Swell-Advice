@@ -1,4 +1,6 @@
 {% extends 'base.html.twig' %}
+<link href="{{ asset('public/css/index.css') }}" type="text/css" rel="stylesheet">
+
 
 {% block title %}Hello SwellAdviceController!{% endblock %}
 
@@ -11,17 +13,17 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
+<title id="Title">Swell Advice</title>
 
-<div class="SpotTitle">
+<div class="searchDiv">
     <center>
         <h2>Recherchez votre spot</h2>
         <label for="searchBar"> 
     </center>
 </div>
 
+<center>
 <button type="button" class="btn btn-info">Renseigez-vous</button>
+</center>
 
 {% endblock %}
