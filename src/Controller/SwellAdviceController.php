@@ -24,7 +24,7 @@ class SwellAdviceController extends AbstractController
     public function spot($id)
     {
       $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
-      $spot = $repositorySpot->findByApiSpotId($id);
+      $spot = $repositorySpot->findBy($id);
 
         return $this->render('swell_advice/spot.html.twig', [
             'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,

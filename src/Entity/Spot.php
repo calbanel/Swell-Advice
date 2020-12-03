@@ -23,11 +23,6 @@ class Spot
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $apiSpotId;
-
-    /**
      * @ORM\ManyToOne(targetEntity=City::class, inversedBy="spots")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -36,7 +31,7 @@ class Spot
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lat;
+    private $latitude;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -60,18 +55,6 @@ class Spot
         return $this;
     }
 
-    public function getApiSpotId(): ?string
-    {
-        return $this->apiSpotId;
-    }
-
-    public function setApiSpotId(string $apiSpotId): self
-    {
-        $this->apiSpotId = $apiSpotId;
-
-        return $this;
-    }
-
     public function getCity(): ?City
     {
         return $this->city;
@@ -84,12 +67,12 @@ class Spot
         return $this;
     }
 
-    public function getLat(): ?string
+    public function getLatitude(): ?string
     {
         return $this->lat;
     }
 
-    public function setLat(string $lat): self
+    public function setLatitude(string $lat): self
     {
         $this->lat = $lat;
 
