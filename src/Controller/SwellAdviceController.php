@@ -10,6 +10,7 @@ use App\Entity\Spot;
 use App\Repository\TestimonialsRepository;
 use App\Entity\Testimonials;
 use App\Form\TestimonialsType;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class SwellAdviceController extends AbstractController
@@ -53,7 +54,7 @@ class SwellAdviceController extends AbstractController
     /**
      * @Route("/testimonials", name="testimonials")
      */
-    public function testimonials_form(Request $requetteHttp, ObjectManager $manager)
+    public function testimonials_form(Request $requetteHttp)
     {
         $testimonials = new Testimonials();
 
@@ -63,8 +64,8 @@ class SwellAdviceController extends AbstractController
 
         if($testimonialsForm->isSubmitted() && $testimonialsForm->isValid()){
 
-            $manager->persist($testimonials);
-            $manager->flush();
+            $this->getDoctrine()->getManager()->persist($testimonials);
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('index');
 
