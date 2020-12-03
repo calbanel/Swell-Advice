@@ -1,20 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SPOT!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div id="toto"></div>
+<script>
+const lat = {{spot.latitude}};
+const lng = {{spot.longitude}};
+const params = 'windSpeed';
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/sweel-advice/src/Controller/SwellAdviceController.php'|file_link(0) }}">src/Controller/SwellAdviceController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/sweel-advice/templates/swell_advice/index.html.twig'|file_link(0) }}">templates/swell_advice/index.html.twig</a></code></li>
-    </ul>
-</div>
+fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
+  headers: {
+    'Authorization': 'bc0663da-35af-11eb-b63f-0242ac130002-bc06648e-35af-11eb-b63f-0242ac130002'
+  }
+}).then((response) => response.json()).then((jsonData) => {
+  console.log(jsonData);
+});
+</script>
 {% endblock %}
