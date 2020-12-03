@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\SpotRepository;
 use App\Entity\Spot;
+
 use Doctrine\Common\Persistence\ObjectManager;
 
 class SwellAdviceController extends AbstractController
@@ -46,4 +47,26 @@ class SwellAdviceController extends AbstractController
             'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
         ]);
     }
+
+    /**
+     * @Route("/testimonials", name="testimonials")
+     */
+    public function testimonials_form(Request $requetteHttp, ObjectManager $manager)
+    {
+        $testimonials = new Testimonials();
+
+        $testimonialsForm = $this->createForm(TestimonialsType::class,$testimonials);
+
+        $testimonialsForm->handleRequest($requetteHttp);
+
+        if($testimonialsForm->isSubmitted() && $testimonialsForm->isValid()){
+
+            $manager->persist($testimonials);
+            $manager->flush();
+
+            return $this->redirectToRoute('index');
+
+        }
+
+        return $this->render('swell_advice/testimonialsForm.html.twig',['testimonialsFormView' => $testimonialsForm->createView()]);
 }
