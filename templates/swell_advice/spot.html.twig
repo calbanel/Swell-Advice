@@ -3,8 +3,8 @@
 {% block body %}
 <div id="toto"></div>
 <script>
-const lat = {{spot.latitude}};
-const lng = {{spot.longitude}};
+const lat = 58.7984;
+const lng = 17.8081;
 const params = 'windSpeed';
 
 fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
