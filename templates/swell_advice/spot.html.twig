@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div id="toto"></div>
+<div id="windSpeed"></div>
 <script>
 const lat = {{spot.latitude}};
 const lng = {{spot.longitude}};
@@ -12,7 +12,7 @@ fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=$
     'Authorization': 'bc0663da-35af-11eb-b63f-0242ac130002-bc06648e-35af-11eb-b63f-0242ac130002'
   }
 }).then((response) => response.json()).then((jsonData) => {
-  console.log(jsonData);
+  document.getElementById('windSpeed').innerHTML += jsonData ;
 });
 </script>
 {% endblock %}
