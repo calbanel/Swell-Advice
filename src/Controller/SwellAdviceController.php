@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\Spot;
+use App\Repository\SpotRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class SwellAdviceController extends AbstractController
