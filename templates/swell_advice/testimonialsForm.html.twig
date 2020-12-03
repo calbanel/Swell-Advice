@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block block %}
+
+
+		 {{ form_start(testimonialsFormView, {'attr': {'novalidate': 'novalidate'}}) }}
+
+		 {{form_label(testimonialsFormView.date)}}
+		 {{form_widget(testimonialsFormView.date)}}
+
+		 {{form_label(testimonialsFormView.duration)}}
+		 {{form_widget(testimonialsFormView.duration)}}
+
+		 {{form_label(testimonialsFormView.location)}}
+		 {{form_widget(testimonialsFormView.location)}}
+
+		 {{form_label(testimonialsFormView.pollution)}}
+		 {{form_widget(testimonialsFormView.pollution)}}
+
+		 <button type="submit" class="btn btn-dark">Valider</button>
+
+		 {{form_end(testimonialsFormView)}}
+
+
+
+
+
+
+
+<BR>
+	<BR>
+
+{% endblock %}
