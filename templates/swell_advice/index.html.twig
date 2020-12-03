@@ -13,11 +13,35 @@
 
 <div class="searchDiv">
     <center>
-        <h2>Recherchez votre spot</h2>
-        <input type="text" name="SearchBar" id="SearchBar" required>
-    </center>
-</div>
+	<input type="text" id="searchBar" onkeyup="myFunction()" placeholder="Recherchez un spot..." title="Type in a name">
 
+	<ul id="myUL">
+	  <li><a href="#">Biarritz</a></li>
+	  <li><a href="#">Anglet</a></li>
+	  <li><a href="#">Bayonne</a></li>
+	</ul>
+    </center>
+
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("searchBar");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+</div>
+<br/>
 <center>
 <button type="button" class="btn btn-info">Renseigez-vous</button>
 </center>

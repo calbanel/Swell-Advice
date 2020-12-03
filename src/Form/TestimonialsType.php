@@ -6,6 +6,7 @@ use App\Entity\Testimonials;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TestimonialsType extends AbstractType
 {
@@ -15,7 +16,14 @@ class TestimonialsType extends AbstractType
             ->add('date')
             ->add('duration')
             ->add('location')
-            ->add('pollution')
+            ->add('pollution', ChoiceType::class, [
+                'choices'  => [
+                    'Élevée' => 'high',
+                    'Moyenne' => 'medium',
+                    'Basse' => 'low',
+                    'Nulle' => 'null',
+                ],
+            ])
         ;
     }
 
