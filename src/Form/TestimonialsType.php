@@ -40,7 +40,7 @@ class TestimonialsType extends AbstractType
             ->add('fishingBoatNb', IntegerType::Class, ['label' => 'Nombre de bateaux de pêche'])
             ->add('leisureBoatNb', IntegerType::Class, ['label' => 'Nombre de bateaux de loisir'])
             ->add('sailingBoatNb', IntegerType::Class, ['label' => 'Nombre de voiliers'])
-            ->add('others', IntegerType::Class, ['label' => 'Nombre d activité nautique'])
+            ->add('others', IntegerType::Class, ['label' => 'Nombre d\'activitées nautiques'])
         ;
     }
 
