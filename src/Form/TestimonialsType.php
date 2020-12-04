@@ -15,7 +15,7 @@ class TestimonialsType extends AbstractType
     {
         $builder
             ->add('surferName', TextType::Class, ['label' => ' Votre nom'])
-            ->add('date', DateTimeType::Class ['label' => 'Date du jour'])
+            ->add('date', DateTimeType::Class, ['label' => 'Date du jour'])
             ->add('duration', TimeType::Class, ['label' => 'Durée de la session'])
             ->add('spot', TextType::Class, ['label' => 'Spot'])
             ->add('pollution', ChoiceType::class, [
