@@ -16,7 +16,19 @@ class TestimonialsType extends AbstractType
             ->add('date')
             ->add('duration')
             ->add('spot')
-            ->add('pollution')
+            ->add('pollution', ChoiceType::class, [
+                            'choices'  => [
+                                'Solar cream' => 'solar cream',
+                                'Perfume' => 'perfume',
+                                'Makeup' => 'makeup',
+                                'Gas' => 'gas',
+                                'Cigaret' => 'cigaret',
+                                'Pesticid' => 'pesticid',
+                                'Paint' => 'paint',
+                                'Other' => 'other',
+                            ],
+                            'expanded' => true,
+                            'multiple' => true),
             ->add('swimmerNb')
             ->add('fishingBoatNb')
             ->add('leisureBoatNb')
