@@ -22,7 +22,6 @@
 .box a {
   display: flex;
   justify-content: center;
-  height: 100%;
   margin-right: 10%;
   margin-top: 5px;
   font-size: 18px;
