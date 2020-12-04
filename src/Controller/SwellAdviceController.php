@@ -54,7 +54,7 @@ class SwellAdviceController extends AbstractController
     /**
      * @Route("/testimonials", name="testimonials")
      */
-    public function testimonials_form(Request $requetteHttp)
+  /*  public function testimonials_form(Request $requetteHttp)
     {
         $testimonials = new Testimonials();
 
@@ -72,5 +72,5 @@ class SwellAdviceController extends AbstractController
         }
 
         return $this->render('swell_advice/testimonialsForm.html.twig',['testimonialsFormView' => $testimonialsForm->createView()]);
-    }
+    }*/
 }
