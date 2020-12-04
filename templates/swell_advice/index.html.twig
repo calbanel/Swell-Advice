@@ -58,20 +58,27 @@ function myFunction() {
 </center>
 
 <script>
-function kill() {
+function kill(num) {
+    switch(num) {
+        case 1:
+            document.getElementById('imgBlack').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        default:
+            break;
+    }
 
 }
 </script>
 
-<img id="imgBlack" src="{{ asset('img/black.png') }}" alt="blackAmongUs" width="100" height="145" onclick="kill()">
-<img id="imgBrown" src="{{ asset('img/brown.png') }}" alt="brownAmongUs" width="100" height="145">
-<img id="imgDarkBlue" src="{{ asset('img/dark_blue.png') }}" alt="darkBlueAmongUs" width="100" height="145">
-<img id="imgDarkGreen" src="{{ asset('img/dark_green.png') }}" alt="darkGreenAmongUs" width="100" height="145">
-<img id="imgLightBlue" src="{{ asset('img/light_blue.png') }}" alt="lightBlueAmongUs" width="100" height="145">
-<img id="imgLightGreen" src="{{ asset('img/light_green.png') }}" alt="lightGreenAmongUs" width="100" height="145">
-<img id="imgOrange" src="{{ asset('img/orange.png') }}" alt="orangeAmongUs" width="100" height="145">
-<img id="imgPink" src="{{ asset('img/pink.png') }}" alt="pinkAmongUs" width="100" height="145">
-<img id="imgRed" src="{{ asset('img/red.png') }}" alt="redAmongUs" width="100" height="145">
-<img id="imgWhite" src="{{ asset('img/white.png') }}" alt="whiteAmongUs" width="100" height="145">
+<img id="imgBlack" src="{{ asset('img/black.png') }}" alt="blackAmongUs" width="100" height="145" onclick="kill(1)">
+<img id="imgBrown" src="{{ asset('img/brown.png') }}" alt="brownAmongUs" width="100" height="145" onclick="kill(2)">
+<img id="imgDarkBlue" src="{{ asset('img/dark_blue.png') }}" alt="darkBlueAmongUs" width="100" height="145" onclick="kill(3)">
+<img id="imgDarkGreen" src="{{ asset('img/dark_green.png') }}" alt="darkGreenAmongUs" width="100" height="145" onclick="kill(4)">
+<img id="imgLightBlue" src="{{ asset('img/light_blue.png') }}" alt="lightBlueAmongUs" width="100" height="145" onclick="kill(5)">
+<img id="imgLightGreen" src="{{ asset('img/light_green.png') }}" alt="lightGreenAmongUs" width="100" height="145" onclick="kill(6)">
+<img id="imgOrange" src="{{ asset('img/orange.png') }}" alt="orangeAmongUs" width="100" height="145" onclick="kill(7)">
+<img id="imgPink" src="{{ asset('img/pink.png') }}" alt="pinkAmongUs" width="100" height="145" onclick="kill(8)">
+<img id="imgRed" src="{{ asset('img/red.png') }}" alt="redAmongUs" width="100" height="145" onclick="kill(9)">
+<img id="imgWhite" src="{{ asset('img/white.png') }}" alt="whiteAmongUs" width="100" height="145" onclick="kill(10)">
 
 {% endblock %}
