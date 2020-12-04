@@ -18,6 +18,9 @@
 	<ul class = "liste" id="liste"></ul>
 </center>
 
+{% for city in cities %}
+{{city.name}}
+{% endfor %}
 <script>
 function myFunction() {
     var input, text, filter, ul, a, li, i, txtValue; // Initialisation des valeurs
