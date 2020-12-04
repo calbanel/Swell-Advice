@@ -1,12 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<canvas id="myChart"></canvas>
+<div class="row">
+  <div class="col-offset-1 col-md-10">
+    <div class="col-md-3">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+</div>
+
     <script>
     const lat = "39.611676";
     const lng = "-9.085479";
     const params = 'swellHeight';
-    
+
     fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
       headers: {
         'Authorization': '0c46070e-35c1-11eb-b63f-0242ac130002-0c460790-35c1-11eb-b63f-0242ac130002'
@@ -51,7 +58,7 @@
         // Configuration options go here
         options: {}
     });
-    
+
 
     console.log(time);
     console.log(swellValue);
