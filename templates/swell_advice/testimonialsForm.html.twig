@@ -5,17 +5,30 @@
 
 		 {{ form_start(testimonialsFormView, {'attr': {'novalidate': 'novalidate'}}) }}
 
-		 {{form_label(testimonialsFormView.date)}}
-		 {{form_widget(testimonialsFormView.date)}}
+		<div class="form-group">
+			{{form_label(testimonialsFormView.date)}}
+			{{form_widget(testimonialsFormView.date)}}
+		</div>
+		
+		<div class="form-group">
+			{{form_label(testimonialsFormView.duration)}}
+		 	{{form_widget(testimonialsFormView.duration)}}
+		</div>
 
-		 {{form_label(testimonialsFormView.duration)}}
-		 {{form_widget(testimonialsFormView.duration)}}
+		<div class="form-group">
+			{{form_label(testimonialsFormView.location)}}
+		 	{{form_widget(testimonialsFormView.location)}}
+		</div>
 
-		 {{form_label(testimonialsFormView.location)}}
-		 {{form_widget(testimonialsFormView.location)}}
+		<div class="form-group">
+			{{form_label(testimonialsFormView.pollution)}}
+		 	{{form_widget(testimonialsFormView.pollution)}}
+		</div>
+		 
 
-		 {{form_label(testimonialsFormView.pollution)}}
-		 {{form_widget(testimonialsFormView.pollution)}}
+		 
+
+		 
 
 		 <button type="submit" class="btn btn-dark">Valider</button>
 
