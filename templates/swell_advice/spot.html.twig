@@ -1,18 +1,65 @@
 {% extends 'base.html.twig' %}
+{% block head %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+{% endblock %}
 
 {% block body %}
-<div id="windSpeed"></div>
-<script>
-const lat = {{spot.latitude}};
-const lng = {{spot.longitude}};
-const params = 'windSpeed';
+<canvas id="myChart"></canvas>
+    <script>
+    const lat = "39.611676";
+    const lng = "-9.085479";
+    const params = 'swellHeight';
+    
+    fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
+      headers: {
+        'Authorization': '0c46070e-35c1-11eb-b63f-0242ac130002-0c460790-35c1-11eb-b63f-0242ac130002'
+      }
+    }).then((response) => response.json()).then((jsonData) => {
+      console.log(jsonData);
+      var time = new Array();
+      var swellValue = new Array();
+      var mean = new Array();
+      var j = 0 , k = 0;
+      for (var i = 0; i < jsonData["hours"].length; i+=6){
+        var obj = jsonData["hours"][i];
+        for (var key in obj){
+            if(key == "time"){
+                time[j] = obj[key]
+                time[j] = time[j].substring(5,10)+' '+time[j].substring(11,16);
+                j++;
+            }
+            if(key == "swellHeight"){
+                swellValue[k] = Object.values(obj[key]);
+                mean[k] = math.mean(swellValue[k]);
+                mean[k] = mean[k].toFixed(2);
+                k++;
+            }
+        }
+    }
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
 
-fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
-  headers: {
-    'Authorization': 'bc0663da-35af-11eb-b63f-0242ac130002-bc06648e-35af-11eb-b63f-0242ac130002'
-  }
-}).then((response) => response.json()).then((jsonData) => {
-  document.getElementById('windSpeed').innerHTML += jsonData ;
-});
-</script>
+        // The data for our dataset
+        data: {
+            labels: time,
+            datasets: [{
+                label: 'Swell value',
+                backgroundColor: 'rgb(135,206,235)',
+                borderColor: 'rgb(135,206,235)',
+                data: mean
+            }]
+        },
+        // Configuration options go here
+        options: {}
+    });
+    
+
+    console.log(time);
+    console.log(swellValue);
+    console.log(mean);
+    });
+    </script>
 {% endblock %}
