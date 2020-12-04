@@ -22,7 +22,7 @@ class SwellAdviceController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(): Response
+    public function index()
     {
       $repositoryCountry=$this->getDoctrine()->getRepository(Country::class);
       $country = $repositoryCountry->find(1);
