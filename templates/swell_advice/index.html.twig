@@ -2,37 +2,33 @@
 
 {% block body %}
 <body>
-<center>
-    <img src="{{ asset('img/logo2.png') }}" alt="logo">
-</center>
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+  <div class="container-fluid">
+    <div class="row">
 
-<title id="Title">Swell Advice</title>
-
-<div class="searchDiv">
-    <center>
-<center>
-	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherchez un spot..." title="Type in a name">
+      <div class="offset-md-3 col-md-6">
+    <img src="{{ asset('img/logo2.png') }}" alt="logo" style="margin: 0 auto;display: block;">
+  </div>
+</div>
+<div class="row">
+<div class="offset-md-4 col-md-4">
+<div class="searchDiv" style="display: block;
+  margin: 0 auto;">
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher une ville..." title="Type in a name" style="display: block;
+    margin: 0 auto;
+    width: 300px;">
 	<ul class = "liste" id="liste"></ul>
-</center>
-
+</div>
+</div>
+</div>
+</div>
 <script>
 function myFunction() {
     var input, text, filter, ul, a, li, i, txtValue; // Initialisation des valeurs
-
     input = document.getElementById("myInput"); // recupère l'inpute de la bar de recherche
-
     filter = input.value.toUpperCase(); // recupère la valeur de la bar de recherche
-
     ul = document.getElementById("liste"); // recupère la liste
-
     var tab = {{ cities | json_encode() | raw }};// Initialisation des valeurs du tableau
     console.log(tab);
-
-
     for (i = 0; i < tab.length; i++) {
             li = document.createElement("li");
             li.setAttribute("id", tab[i]);
@@ -43,7 +39,6 @@ function myFunction() {
             li.appendChild(a);
             li.style.display = "none";
     		ul.appendChild(li);
-
     }
     if (filter != ""){
 	    for (i = 0; i < tab.length; i++) {
@@ -60,27 +55,81 @@ function myFunction() {
     	for (i = 0; i < tab.length; i++) {
             li = document.getElementById(tab[i]);
             li.style.display = "none";
-
     	}
     }
 }
-
 </script>
 </div>
 <br/>
 <center>
-<button type="button" class="btn btn-info">Renseigez-vous</button>
+<a href="/testimonials" class="btn btn-info">Renseignez-nous</a>
 </center>
 
-<img id="imgBlack" src="{{ asset('img/black.png') }}" alt="blackAmongUs">
-<img id="imgBrown" src="{{ asset('img/brown.png') }}" alt="brownAmongUs">
-<img id="imgDarkBlue" src="{{ asset('img/dark_blue.png') }}" alt="darkBlueAmongUs">
-<img id="imgDarkGreen" src="{{ asset('img/dark_green.png') }}" alt="darkGreenAmongUs">
-<img id="imgLightBlue" src="{{ asset('img/light_blue.png') }}" alt="lightBlueAmongUs">
-<img id="imgLightGreen" src="{{ asset('img/light_green.png') }}" alt="lightGreenAmongUs">
-<img id="imgOrange" src="{{ asset('img/orange.png') }}" alt="orangeAmongUs">
-<img id="imgPink" src="{{ asset('img/pink.png') }}" alt="pinkAmongUs">
-<img id="imgRed" src="{{ asset('img/red.png') }}" alt="redAmongUs">
-<img id="imgWhite" src="{{ asset('img/white.png') }}" alt="whiteAmongUs">
+<script>
+
+var pif = Math.floor(Math.random() * 10) + 1
+
+function kill(num) {
+
+    if(pif == num) {
+        document.getElementById('idImpostor').innerHTML = 'Bravo, tu as tué l\'imposteur ! (Mais rien ne t\'empêche de tuer les autres)';
+    }
+    else {
+        document.getElementById('idImpostor').innerHTML = 'Tu as tué un innocent !!';
+    }
+
+    switch(num) {
+        case 1:
+            document.getElementById('imgBlack').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 2:
+            document.getElementById('imgBrown').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 3:
+            document.getElementById('imgDarkBlue').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 4:
+            document.getElementById('imgDarkGreen').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 5:
+            document.getElementById('imgLightBlue').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 6:
+            document.getElementById('imgLightGreen').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 7:
+            document.getElementById('imgOrange').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 8:
+            document.getElementById('imgPink').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 9:
+            document.getElementById('imgRed').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 10:
+            document.getElementById('imgWhite').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        default:
+            break;
+    }
+}
+</script>
+
+<center>
+<p id="idImpostor" style="padding-top: 200px;"></p>
+</center>
+
+<center>
+<img id="imgBlack" src="{{ asset('img/black.png') }}" alt="blackAmongUs" width="100" height="145" onclick="kill(1)">
+<img id="imgBrown" src="{{ asset('img/brown.png') }}" alt="brownAmongUs" width="100" height="145" onclick="kill(2)">
+<img id="imgDarkBlue" src="{{ asset('img/dark_blue.png') }}" alt="darkBlueAmongUs" width="100" height="145" onclick="kill(3)">
+<img id="imgDarkGreen" src="{{ asset('img/dark_green.png') }}" alt="darkGreenAmongUs" width="100" height="145" onclick="kill(4)">
+<img id="imgLightBlue" src="{{ asset('img/light_blue.png') }}" alt="lightBlueAmongUs" width="100" height="145" onclick="kill(5)">
+<img id="imgLightGreen" src="{{ asset('img/light_green.png') }}" alt="lightGreenAmongUs" width="100" height="145" onclick="kill(6)">
+<img id="imgOrange" src="{{ asset('img/orange.png') }}" alt="orangeAmongUs" width="100" height="145" onclick="kill(7)">
+<img id="imgPink" src="{{ asset('img/pink.png') }}" alt="pinkAmongUs" width="100" height="145" onclick="kill(8)">
+<img id="imgRed" src="{{ asset('img/red.png') }}" alt="redAmongUs" width="100" height="145" onclick="kill(9)">
+<img id="imgWhite" src="{{ asset('img/white.png') }}" alt="whiteAmongUs" width="100" height="145" onclick="kill(10)">
+</center>
 
 {% endblock %}
