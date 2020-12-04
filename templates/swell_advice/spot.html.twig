@@ -1,22 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="offset-md-3 col-md-6" style="backgroundColor:white;">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="/" class="btn btn-dark">Retour</a>
+      </div>
+      <div class="col-md-8">
+      <h1 style="text-align:center;">Renseignez-nous</h1>
+      </div>
+      </div>
+      </div>
+      </div>
 <div class="row">
-  <div class="offset-md-1 col-md-10">
-    <div class="col-md-8">
+  <div class="offset-md-2 col-md-8">
+    <div class="col-md-12">
       <canvas id="swellHeightChart"></canvas>
     </div>
-    <div class="col-md-4">
-
-    </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
       <canvas id="airAndWaterTemperature"></canvas>
-    </div>
-    <div class="col-md-4">
-
     </div>
   </div>
 </div>
+</div
 
     <script>
     const lat = {{spot.latitude}};
