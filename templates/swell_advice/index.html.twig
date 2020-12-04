@@ -13,34 +13,54 @@
 
 <div class="searchDiv">
     <center>
-	<input type="text" id="searchBar" onkeyup="myFunction()" placeholder="Recherchez un spot..." title="Type in a name">
+<center>
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherchez un spot..." title="Type in a name">
+	<ul id="liste"></ul>
+</center>
 
-	<ul id="myUL">
-	  <li><a href="#">Biarritz</a></li>
-	  <li><a href="#">Anglet</a></li>
-	  <li><a href="#">Bayonne</a></li>
-	</ul>
-    </center>
+<script>
+function myFunction() {
+    var input, text, filter, ul, li, i, txtValue; // Initialisation des valeurs
+    
+    input = document.getElementById("myInput"); // recupère l'inpute de la bar de recherche
+    
+    filter = input.value.toUpperCase(); // recupère la valeur de la bar de recherche
+    
+    ul = document.getElementById("liste"); // recupère la liste
+    
+    var tab = ["Biarritz", "Anglet", "Bayonne"]; // Initialisation des valeurs du tableau
 
-    <script>
-    function myFunction() {
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById("searchBar");
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName("li");
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            txtValue = a.textContent || a.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
+
+    for (i = 0; i < tab.length; i++) {
+            li = document.createElement("li");
+            li.setAttribute("id", tab[i]);
+            text = document.createTextNode(tab[i]); 
+            li.appendChild(text);
+            li.style.display = "none";
+    		ul.appendChild(li);
+        
     }
-    </script>
-</div>
+    if (filter != ""){
+	    for (i = 0; i < tab.length; i++) {
+	    	li = document.getElementById(tab[i]);
+	        if (tab[i].toUpperCase().startsWith(filter)) {
+	            li.style.display = "";
+	        } 
+	        else{
+	        	li.style.display = "none";
+	        }
+	    }
+	}
+    else{
+    	for (i = 0; i < tab.length; i++) {
+            li = document.getElementById(tab[i]);
+            li.style.display = "none";
+        
+    	}
+    }
+}
+
+</script>
 <br/>
 <center>
 <button type="button" class="btn btn-info">Renseigez-vous</button>
