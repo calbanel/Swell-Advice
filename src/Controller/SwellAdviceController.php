@@ -31,7 +31,6 @@ class SwellAdviceController extends AbstractController
       foreach ($cities as $city) {
         array_push($tab,$city->getName());
       }
-      $tab = json_encode($tab);
 
         return $this->render('swell_advice/index.html.twig', ['cities' => $tab]);
     }
