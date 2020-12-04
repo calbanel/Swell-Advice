@@ -18,9 +18,7 @@
 	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherchez un spot..." title="Type in a name">
 	<ul class = "liste" id="liste"></ul>
 </center>
-<div id="data-cities" data-cities="{{ cities|json_encode }}">
-    <!-- ... -->
-</div>
+{{cities}}
 <script>
 function myFunction() {
     var input, text, filter, ul, a, li, i, txtValue; // Initialisation des valeurs
