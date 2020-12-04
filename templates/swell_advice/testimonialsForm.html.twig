@@ -5,30 +5,60 @@
 
 		 {{ form_start(testimonialsFormView, {'attr': {'novalidate': 'novalidate'}}) }}
 
+    <div class="form-group">
+ 			{{form_label(testimonialsFormView.surferName)}}
+ 			{{form_widget(testimonialsFormView.surferName)}}
+ 		</div>
+
 		<div class="form-group">
 			{{form_label(testimonialsFormView.date)}}
 			{{form_widget(testimonialsFormView.date)}}
 		</div>
-		
+
 		<div class="form-group">
 			{{form_label(testimonialsFormView.duration)}}
 		 	{{form_widget(testimonialsFormView.duration)}}
 		</div>
 
-		<div class="form-group">
-			{{form_label(testimonialsFormView.location)}}
-		 	{{form_widget(testimonialsFormView.location)}}
+    <div class="form-group">
+			{{form_label(testimonialsFormView.spot)}}
+		 	{{form_widget(testimonialsFormView.spot)}}
 		</div>
 
 		<div class="form-group">
 			{{form_label(testimonialsFormView.pollution)}}
 		 	{{form_widget(testimonialsFormView.pollution)}}
 		</div>
-		 
 
-		 
+		<div class="form-group">
+			{{form_label(testimonialsFormView.swimmerNb)}}
+		 	{{form_widget(testimonialsFormView.swimmerNb)}}
+		</div>
 
-		 
+    <div class="form-group">
+			{{form_label(testimonialsFormView.fishingBoatNb)}}
+		 	{{form_widget(testimonialsFormView.fishingBoatNb)}}
+		</div>
+
+    <div class="form-group">
+			{{form_label(testimonialsFormView.leisureBoatNb)}}
+		 	{{form_widget(testimonialsFormView.leisureBoatNb)}}
+		</div>
+
+    <div class="form-group">
+			{{form_label(testimonialsFormView.sailingBoatNb)}}
+		 	{{form_widget(testimonialsFormView.sailingBoatNb)}}
+		</div>
+
+    <div class="form-group">
+			{{form_label(testimonialsFormView.others)}}
+		 	{{form_widget(testimonialsFormView.others)}}
+		</div>
+
+
+
+
+
 
 		 <button type="submit" class="btn btn-dark">Valider</button>
 
