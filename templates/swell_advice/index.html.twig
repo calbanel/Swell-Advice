@@ -59,17 +59,50 @@ function myFunction() {
 
 <script>
 function kill(num) {
+    
+    var pif = Math.floor(Math.random() * 10) + 1
+
     switch(num) {
         case 1:
             document.getElementById('imgBlack').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 2:
+            document.getElementById('imgBrown').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 3:
+            document.getElementById('imgDarkBlue').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 4:
+            document.getElementById('imgDarkGreen').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 5:
+            document.getElementById('imgLightBlue').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 6:
+            document.getElementById('imgLightGreen').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 7:
+            document.getElementById('imgOrange').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 8:
+            document.getElementById('imgPink').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 9:
+            document.getElementById('imgRed').src = "{{ asset('img/grave.jpg') }}";
+            break;
+        case 10:
+            document.getElementById('imgWhite').src = "{{ asset('img/grave.jpg') }}";
             break;
         default:
             break;
     }
 
+    document.getElementById('idImpostor').innerHTML = 'Impostor is' + pif
+
 }
 </script>
 
+<p id="idImpostor"></p>
 <img id="imgBlack" src="{{ asset('img/black.png') }}" alt="blackAmongUs" width="100" height="145" onclick="kill(1)">
 <img id="imgBrown" src="{{ asset('img/brown.png') }}" alt="brownAmongUs" width="100" height="145" onclick="kill(2)">
 <img id="imgDarkBlue" src="{{ asset('img/dark_blue.png') }}" alt="darkBlueAmongUs" width="100" height="145" onclick="kill(3)">
