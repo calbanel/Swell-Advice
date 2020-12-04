@@ -28,7 +28,7 @@ class SwellAdviceController extends AbstractController
       $country = $repositoryCountry->find(1);
       $cities = $country->getCities();
       $tab = [];
-      foreach ($city as $cities) {
+      foreach ($cities as $city) {
         array_push($tab,$city->getName());
       }
 
