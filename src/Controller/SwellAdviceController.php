@@ -82,7 +82,7 @@ class SwellAdviceController extends AbstractController
     public function city($name)
     {
       $repositoryCity=$this->getDoctrine()->getRepository(City::class);
-      $city = $repositoryCity->findBy(['name' => $name]);
+      $city = $repositoryCity->findOneBy(['name' => $name]);
 
         return $this->render('swell_advice/city.html.twig', ['city' => $city]);
     }
