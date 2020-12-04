@@ -18,10 +18,6 @@
 	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Recherchez un spot..." title="Type in a name">
 	<ul class = "liste" id="liste"></ul>
 </center>
-{{ cities|json_encode }}
-{% for city in cities %}
-{{city.name}}
-{% endfor %}
 <div id="data-cities" data-cities="{{ cities|json_encode }}">
     <!-- ... -->
 </div>
@@ -35,7 +31,7 @@ function myFunction() {
 
     ul = document.getElementById("liste"); // recupère la liste
 
-    var tab =  {{ cities|json_encode }};// Initialisation des valeurs du tableau
+    var tab =  {{ cities }};// Initialisation des valeurs du tableau
     console.log(tab);
 
 
