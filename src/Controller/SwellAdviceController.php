@@ -26,9 +26,7 @@ class SwellAdviceController extends AbstractController
     {
       $repositoryCountry=$this->getDoctrine()->getRepository(Country::class);
       $country = $repositoryCountry->find(1);
-        return $this->render('swell_advice/index.html.twig', [
-            'country' => $country,
-        ]);
+        return $this->render('swell_advice/index.html.twig', ['country' => $country]);
     }
 
     /**
