@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<div class = "box">
+<body class = "background">
+<div class = "box"> 
 {% for spot in city.spots %}
-<a href="/spot/{{spot.id}}"> {{spot.name}} </a>
+<a href="/spot/{{spot.id}}"> {{spot.name}} </a>  
 {% endfor %}
 <div>
-
+</body>
 
 
 {% endblock %}
