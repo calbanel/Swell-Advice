@@ -34,7 +34,7 @@ function myFunction() {
 
     ul = document.getElementById("liste"); // recupère la liste
 
-    var tab =  document.querySelector("#data-cities").dataset.cities;// Initialisation des valeurs du tableau
+    var tab =  {{ cities|json_encode }};// Initialisation des valeurs du tableau
     console.log(tab);
 
 
