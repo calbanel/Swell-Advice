@@ -32,7 +32,7 @@ class SwellAdviceController extends AbstractController
         array_push($tab,$city->getName());
       }
 
-        return $this->render('swell_advice/index.html.twig', ['cities' => $tab]);
+        return $this->render('swell_advice/index.html.twig', ['cities' => json_encode($tab)]);
     }
 
     /**
