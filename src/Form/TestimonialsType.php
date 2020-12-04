@@ -14,28 +14,29 @@ class TestimonialsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('surferName')
-            ->add('date')
-            ->add('duration')
-            ->add('spot')
+            ->add('surferName', ['label' => ' Votre nom'])
+            ->add('date', ['label' => 'Date du jour'])
+            ->add('duration',['label' => 'Durée de la session'])
+            ->add('spot',['label' => 'Spot'])
             ->add('pollution', ChoiceType::class, [
                             'choices'  => [
-                                'Solar cream' => 'solar cream',
-                                'Perfume' => 'perfume',
-                                'Makeup' => 'makeup',
-                                'Gas' => 'gas',
-                                'Cigaret' => 'cigaret',
-                                'Pesticid' => 'pesticid',
-                                'Paint' => 'paint',
-                                'Other' => 'other',
+                                'Creme solaire' => 'solar cream',
+                                'Parfum' => 'perfume',
+                                'Maquillage' => 'makeup',
+                                'Essence' => 'gas',
+                                'Cigarette' => 'cigaret',
+                                'Pesticide' => 'pesticid',
+                                'Peinture' => 'paint',
+                                'Autre' => 'other',
                             ],
                             'expanded' => true,
-                            'multiple' => true])
-            ->add('swimmerNb')
-            ->add('fishingBoatNb')
-            ->add('leisureBoatNb')
-            ->add('sailingBoatNb')
-            ->add('others')
+                            'multiple' => true,
+                            'label' => 'Type de pollutions'])
+            ->add('swimmerNb',['label' => 'Nombre de nageurs'])
+            ->add('fishingBoatNb',['label' => 'Nombre de bateaux de pêche'])
+            ->add('leisureBoatNb',['label' => 'Nombre de bateaux de loisir'])
+            ->add('sailingBoatNb',['label' => 'Nombre de voiliers'])
+            ->add('others',['label' => 'Nombre d activité nautique'])
         ;
     }
 
