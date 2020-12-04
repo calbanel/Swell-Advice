@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<body class="background">
-<h1 class="titleCity">{{city.name}}</h1> 
+<body class="background"> 
 <div class = "box">
+<h1 class="titleCity">{{city.name}}</h1>
 {% for spot in city.spots %}
 <a href="/spot/{{spot.id}}"> {{spot.name}} </a>  
 {% endfor %}
+<button type="button" href="/" class="btn btn-light">Retour</button>
 </div>
 
 
