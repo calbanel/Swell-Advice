@@ -24,12 +24,13 @@
   justify-content: center;
   height: 100%;
   margin-right: 10%;
-  margin-top: 12px;
+  margin-top: 5px;
   font-size: 18px;
+  text-decoration:none
 }
 
 .box li {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 .background {
