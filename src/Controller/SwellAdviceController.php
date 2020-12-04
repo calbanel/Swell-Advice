@@ -48,18 +48,6 @@ class SwellAdviceController extends AbstractController
     }
 
     /**
-     * @Route("/spot/{id}/details", name="spot_details")
-     */
-    public function spot_details($id)
-    {
-      $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
-      $spot = $repositorySpot->find($id);
-
-        return $this->render('swell_advice/spotdetails.html.twig', ['id' => $id, 'spot' => $spot,
-        ]);
-    }
-
-    /**
      * @Route("/testimonials", name="testimonials")
      */
     public function testimonials_form(Request $requetteHttp)
