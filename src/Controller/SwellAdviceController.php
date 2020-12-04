@@ -11,6 +11,8 @@ use App\Repository\TestimonialsRepository;
 use App\Entity\Testimonials;
 use App\Repository\CityRepository;
 use App\Entity\City;
+use App\Repository\CountryRepository;
+use App\Entity\Country;
 use App\Form\TestimonialsType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -22,8 +24,10 @@ class SwellAdviceController extends AbstractController
      */
     public function index(): Response
     {
+      $repositoryCountry=$this->getDoctrine()->getRepository(Country::class);
+      $country = $repositoryCountry->find(1);
         return $this->render('swell_advice/index.html.twig', [
-            'controller_name' => 'SwellAdviceController',
+            'country' => $country,
         ]);
     }
 
@@ -35,8 +39,7 @@ class SwellAdviceController extends AbstractController
       $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
       $spot = $repositorySpot->find($id);
 
-        return $this->render('swell_advice/spot.html.twig', [
-            'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
+        return $this->render('swell_advice/spot.html.twig', ['id' => $id, 'spot' => $spot,
         ]);
     }
 
@@ -48,8 +51,7 @@ class SwellAdviceController extends AbstractController
       $repositorySpot=$this->getDoctrine()->getRepository(Spot::class);
       $spot = $repositorySpot->find($id);
 
-        return $this->render('swell_advice/spotdetails.html.twig', [
-            'controller_name' => 'SwellAdviceController', 'id' => $id, 'spot' => $spot,
+        return $this->render('swell_advice/spotdetails.html.twig', ['id' => $id, 'spot' => $spot,
         ]);
     }
 
