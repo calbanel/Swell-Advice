@@ -20,7 +20,7 @@
 
 <script>
 function myFunction() {
-    var input, text, filter, ul, li, i, txtValue; // Initialisation des valeurs
+    var input, text, filter, ul, a, li, i, txtValue; // Initialisation des valeurs
 
     input = document.getElementById("myInput"); // recupère l'inpute de la bar de recherche
 
@@ -35,9 +35,10 @@ function myFunction() {
             li = document.createElement("li");
             li.setAttribute("id", tab[i]);
             text = document.createTextNode(tab[i]);
-            li.appendChild(text);
+            a.appendChild(text);
+            a.href = "/city/" + tab[i];
+            li.appendChild(a);
             li.style.display = "none";
-            li.href = "/city/" + tab[i];
     		ul.appendChild(li);
 
     }
