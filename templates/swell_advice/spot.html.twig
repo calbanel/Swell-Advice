@@ -3,13 +3,13 @@
 {% block body %}
 <canvas id="myChart"></canvas>
     <script>
-    const lat = "39.611676";
-    const lng = "-9.085479";
+    const lat = {{spot.latitude}};
+    const lng = {{spot.longitude}};
     const params = 'swellHeight';
     
     fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
       headers: {
-        'Authorization': '0c46070e-35c1-11eb-b63f-0242ac130002-0c460790-35c1-11eb-b63f-0242ac130002'
+        'Authorization': 'bc0663da-35af-11eb-b63f-0242ac130002-bc06648e-35af-11eb-b63f-0242ac130002'
       }
     }).then((response) => response.json()).then((jsonData) => {
       console.log(jsonData);
