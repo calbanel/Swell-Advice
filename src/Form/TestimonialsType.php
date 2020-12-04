@@ -28,7 +28,7 @@ class TestimonialsType extends AbstractType
                                 'Other' => 'other',
                             ],
                             'expanded' => true,
-                            'multiple' => true),
+                            'multiple' => true]),
             ->add('swimmerNb')
             ->add('fishingBoatNb')
             ->add('leisureBoatNb')
