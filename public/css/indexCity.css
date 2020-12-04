@@ -32,7 +32,7 @@
 .titleCity {
     text-align: center;
     color: white;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .center {
@@ -46,4 +46,9 @@
         padding: 12px;
         display: block;
         height: 500px;
+}
+.back{
+    margin: 10px auto;
+    width: 200 px;
+    display: block;
 }
