@@ -3,7 +3,8 @@
 {% block body %}
 <body>
   <div class="row">
-    <div class="col-offset-2 col-md-8">
+    <div class="col-offset-1 col-md-10">
+      <div class="col-md-12">
 		 {{ form_start(testimonialsFormView, {'attr': {'novalidate': 'novalidate'}}) }}
 
     <div class="form-group">
@@ -39,14 +40,10 @@
     <div class="form-group">
 			{{form_label(testimonialsFormView.fishingBoatNb)}}
 		 	{{form_widget(testimonialsFormView.fishingBoatNb, {'attr': {'class': 'form-control'}})}}
-		</div>
 
-    <div class="form-group">
 			{{form_label(testimonialsFormView.leisureBoatNb)}}
 		 	{{form_widget(testimonialsFormView.leisureBoatNb, {'attr': {'class': 'form-control'}})}}
-		</div>
 
-    <div class="form-group">
 			{{form_label(testimonialsFormView.sailingBoatNb)}}
 		 	{{form_widget(testimonialsFormView.sailingBoatNb, {'attr': {'class': 'form-control'}})}}
 		</div>
@@ -64,6 +61,7 @@
 		 <button type="submit" class="btn btn-dark">Valider</button>
 
 		 {{form_end(testimonialsFormView)}}
+     </div>
      </div>
      </div>
 
