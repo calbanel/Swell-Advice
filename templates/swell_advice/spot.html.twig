@@ -15,19 +15,21 @@
     <script>
     const lat = {{spot.latitude}};
     const lng = {{spot.longitude}};
-    const params = 'swellHeight';
+    const params = ["swellHeight", "waterTemperature", "airTemperature"];
 
     fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
       headers: {
-        'Authorization': 'bc0663da-35af-11eb-b63f-0242ac130002-bc06648e-35af-11eb-b63f-0242ac130002'
+        'Authorization': '90d9882e-35d5-11eb-b63f-0242ac130002-90d98900-35d5-11eb-b63f-0242ac130002'
       }
     }).then((response) => response.json()).then((jsonData) => {
       console.log(jsonData);
       var time = new Array();
       var swellValue = new Array();
       var mean = new Array();
-      var j = 0 , k = 0;
-      for (var i = 0; i < jsonData["hours"].length; i+=6){
+      var waterTemperature = new Array();
+      var airTemperature = new Array();
+      var j = 0 , k = 0 , l = 0 , m = 0;
+      for (var i = 0; i < 162; i+=6){
         var obj = jsonData["hours"][i];
         for (var key in obj){
             if(key == "time"){
@@ -41,9 +43,19 @@
                 mean[k] = mean[k].toFixed(2);
                 k++;
             }
+            if(key =="waterTemperature"){
+                waterTemperature[l] = Object.values(obj[key]);
+                waterTemperature[l] = math.mean(waterTemperature[l]).toFixed(1);
+                l++;
+            }
+            if(key =="airTemperature"){
+                airTemperature[m] = Object.values(obj[key]);
+                airTemperature[m] = math.mean(airTemperature[m]).toFixed(1);
+                m++;
+            }
         }
     }
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('swellHeightChart').getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'bar',
@@ -61,11 +73,38 @@
         // Configuration options go here
         options: {}
     });
+    var ctx = document.getElementById('airAndWaterTemperature').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
 
+        // The data for our dataset
+        data: {
+            labels: time,
+            datasets: [{
+                label: 'air temperature',
+                backgroundColor: 'rgb(255,228,181)',
+                borderColor: 'rgb(255,228,181)',
+                data: airTemperature
+            },
+            {
+                label: 'water temperature',
+                backgroundColor: 'rgb(70,130,180)',
+                borderColor: 'rgb(70,130,180)',
+                data: waterTemperature
+            }]
+        },
+        // Configuration options go here
+        options: {}
+    });
+    //swellDirection swellHeight swellPeriod waterTemperature airTemperature currentDirection currentSpeed wavePeriod seaLevel windSpeed
+    
 
     console.log(time);
     console.log(swellValue);
     console.log(mean);
+    console.log(waterTemperature);
+    console.log(airTemperature);    
     });
     </script>
 {% endblock %}
