@@ -1,13 +1,19 @@
-#box {
-    border : 1 px solid black;
-    margin : 50%;
+.box {
+    border: 1px solid black;
+    margin-top: 20%; /* Prevent double borders */
+    margin-left: 35%;
+    margin-right: 35%;
     background-color: white;
+    padding: 12px;
+    font-size: 18px;
 }
 
-#background {
-    background-color: cadetblue;
+.box a {
+	margin-right: 10%;
+	list-style-type: none;
+	margin-top: 12px;
 }
 
-#box a{
-    
+.background {
+    background-color: teal;
 }
