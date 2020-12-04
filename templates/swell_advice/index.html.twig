@@ -21,31 +21,32 @@
 <script>
 function myFunction() {
     var input, text, filter, ul, li, i, txtValue; // Initialisation des valeurs
-    
+
     input = document.getElementById("myInput"); // recupère l'inpute de la bar de recherche
-    
+
     filter = input.value.toUpperCase(); // recupère la valeur de la bar de recherche
-    
+
     ul = document.getElementById("liste"); // recupère la liste
-    
+
     var tab = ["Biarritz", "Anglet", "Bayonne"]; // Initialisation des valeurs du tableau
 
 
     for (i = 0; i < tab.length; i++) {
             li = document.createElement("li");
             li.setAttribute("id", tab[i]);
-            text = document.createTextNode(tab[i]); 
+            text = document.createTextNode(tab[i]);
             li.appendChild(text);
             li.style.display = "none";
+            li.href = "/city/" + tab[i];
     		ul.appendChild(li);
-        
+
     }
     if (filter != ""){
 	    for (i = 0; i < tab.length; i++) {
 	    	li = document.getElementById(tab[i]);
 	        if (tab[i].toUpperCase().startsWith(filter)) {
 	            li.style.display = "";
-	        } 
+	        }
 	        else{
 	        	li.style.display = "none";
 	        }
@@ -55,7 +56,7 @@ function myFunction() {
     	for (i = 0; i < tab.length; i++) {
             li = document.getElementById(tab[i]);
             li.style.display = "none";
-        
+
     	}
     }
 }

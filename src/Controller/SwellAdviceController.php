@@ -73,4 +73,16 @@ class SwellAdviceController extends AbstractController
 
         return $this->render('swell_advice/testimonialsForm.html.twig',['testimonialsFormView' => $testimonialsForm->createView()]);
     }
+
+    /**
+     * @Route("/city/{name}", name="city")
+     */
+    public function city($name)
+    {
+      $repositoryCity=$this->getDoctrine()->getRepository(City::class);
+      $spot = $repositoryCity->findByName($name);
+
+        return $this->render('swell_advice/city.html.twig', 'name' => $name
+        ]);
+    }
 }
