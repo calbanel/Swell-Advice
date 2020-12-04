@@ -35,3 +35,8 @@
 .background {
     background-color: teal;
 }
+
+.titleCity {
+    text-align: center;
+    color: white;
+}
