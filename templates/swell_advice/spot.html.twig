@@ -2,6 +2,15 @@
 
 {% block body %}
 <body>
+<style type="text/css">
+        th{
+            border: 1px solid black;
+        }
+        td{
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
 <div class="container-fluid">
   <div class="row">
 
@@ -24,53 +33,120 @@
     <div class="col-md-12">
       <canvas id="airAndWaterTemperature"></canvas>
     </div>
+    <div class="col-md-12">
+    <label for="day">Choisissez un jour:</label>
+    <select name="day" id="mySelect" onchange="showDayCondition()">
+        <option></option>
+        <option id="monday">Lundi</option>
+        <option id="tuesday">Mardi</option>
+        <option id="wednesday">Mercredi</option>
+        <option id="thursday">Jeudi</option>
+        <option id="friday">Vendredi</option>
+        <option id="saturday">Samedi</option>
+        <option id="sunday">Dimanche</option>
+    </select>
+    <table id = "dayData"><thead><th>Heure</th><th>Taille de la houle</th><th>Direction de la houle</th><th>Swell period</th><th>Direction du courrant</th><th>Période</th><th>Marée</th><th>Vitesse du vent</th><th>Température de l'eau</th><th>Température de l'air</th></thead><tbody></tbody></table>
+  </div>
   </div>
 </div>
 </div>
 
-    <script>
-    const lat = {{spot.latitude}};
-    const lng = {{spot.longitude}};
-    const params = ["swellHeight", "waterTemperature", "airTemperature"];
+<script>
+    //Variable declaration
+    const lat = "39.611676";
+    const lng = "-9.085479";
+    const params = ["swellHeight", "swellDirection", "swellPeriod", "currentDirection", "wavePeriod", "seaLevel", "windSpeed", "waterTemperature", "airTemperature"];
+    var time = new Array();
+    var swellHeight = new Array();
+    var swellDirection = new Array();
+    var swellPeriod = new Array();
+    var currentDirection = new Array();
+    var wavePeriod = new Array();
+    var seaLevel = new Array();
+    var windSpeed = new Array();
+    var waterTemperature = new Array();
+    var airTemperature = new Array();
+    //End of vairable declaration
 
+
+    //Data Fetching
     fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
       headers: {
-        'Authorization': '90d9882e-35d5-11eb-b63f-0242ac130002-90d98900-35d5-11eb-b63f-0242ac130002'
+        'Authorization': '7599dfac-35ec-11eb-b63f-0242ac130002-7599e06a-35ec-11eb-b63f-0242ac130002'
       }
     }).then((response) => response.json()).then((jsonData) => {
       console.log(jsonData);
-      var time = new Array();
-      var swellValue = new Array();
-      var mean = new Array();
-      var waterTemperature = new Array();
-      var airTemperature = new Array();
-      var j = 0 , k = 0 , l = 0 , m = 0;
-      for (var i = 0; i < 162; i+=6){
+      var j = [0,0,0,0,0,0,0,0,0,0];
+      //retrieving data
+      for (var i = 0; i < 168; i+=6){
         var obj = jsonData["hours"][i];
         for (var key in obj){
-            if(key == "time"){
-                time[j] = obj[key]
-                time[j] = time[j].substring(5,10)+' '+time[j].substring(11,16);
-                j++;
-            }
-            if(key == "swellHeight"){
-                swellValue[k] = Object.values(obj[key]);
-                mean[k] = math.mean(swellValue[k]);
-                mean[k] = mean[k].toFixed(2);
-                k++;
-            }
-            if(key =="waterTemperature"){
-                waterTemperature[l] = Object.values(obj[key]);
-                waterTemperature[l] = math.mean(waterTemperature[l]).toFixed(1);
-                l++;
-            }
-            if(key =="airTemperature"){
-                airTemperature[m] = Object.values(obj[key]);
-                airTemperature[m] = math.mean(airTemperature[m]).toFixed(1);
-                m++;
+            switch(key){
+                case "time":
+                time[j[0]] = obj[key]
+                time[j[0]] = time[j[0]].substring(5,10)+' '+time[j[0]].substring(11,16);
+                j[0]++;
+                break;
+
+                case "swellHeight":
+                swellHeight[j[1]] = Object.values(obj[key]);
+                swellHeight[j[1]] = math.mean(swellHeight[j[1]]).toFixed(2);
+                j[1]++;
+                break;
+
+                case "swellDirection":
+                swellDirection[j[2]] = Object.values(obj[key]);
+                swellDirection[j[2]] = math.mean(swellDirection[j[2]]).toFixed(2);
+                j[2]++;
+                break;
+
+                case "swellPeriod":
+                swellPeriod[j[3]] = Object.values(obj[key]);
+                swellPeriod[j[3]] = math.mean(swellPeriod[j[3]]).toFixed(0);
+                j[3]++;
+                break;
+
+                case "currentDirection":
+                currentDirection[j[4]] = Object.values(obj[key]);
+                currentDirection[j[4]] = math.mean(currentDirection[j[4]]).toFixed(0);
+                j[4]++;
+                break;
+
+                case "wavePeriod":
+                wavePeriod[j[5]] = Object.values(obj[key]);
+                wavePeriod[j[5]] = math.mean(wavePeriod[j[5]]).toFixed(0);
+                j[5]++;
+                break;
+
+                case "seaLevel":
+                seaLevel[j[6]] = Object.values(obj[key]);
+                seaLevel[j[6]] = math.mean(seaLevel[j[6]]).toFixed(2);
+                j[6]++;
+                break;
+
+                case "windSpeed":
+                windSpeed[j[7]] = Object.values(obj[key]);
+                windSpeed[j[7]] = math.mean(windSpeed[j[7]]).toFixed(2);
+                j[7]++;
+                break;
+
+                case "waterTemperature":
+                waterTemperature[j[8]] = Object.values(obj[key]);
+                waterTemperature[j[8]] = math.mean(waterTemperature[j[8]]).toFixed(1);
+                j[8]++;
+                break;
+
+                case "airTemperature":
+                airTemperature[j[9]] = Object.values(obj[key]);
+                airTemperature[j[9]] = math.mean(airTemperature[j[9]]).toFixed(1);
+                j[9]++;
+                break;
             }
         }
     }
+    //End of data retrieving
+
+    //Chart generation
     var ctx = document.getElementById('swellHeightChart').getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
@@ -80,47 +156,79 @@
         data: {
             labels: time,
             datasets: [{
-                label: 'Swell value',
+                label: 'Taille de la houle',
                 backgroundColor: 'rgb(135,206,235)',
                 borderColor: 'rgb(135,206,235)',
-                data: mean
+                data: swellHeight
             }]
         },
         // Configuration options go here
         options: {}
-    });
-    var ctx = document.getElementById('airAndWaterTemperature').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'bar',
+    }); 
+    //End of chart generation    
+});
+    //End of data fetching
 
-        // The data for our dataset
-        data: {
-            labels: time,
-            datasets: [{
-                label: 'air temperature',
-                backgroundColor: 'rgb(255,228,181)',
-                borderColor: 'rgb(255,228,181)',
-                data: airTemperature
-            },
-            {
-                label: 'water temperature',
-                backgroundColor: 'rgb(70,130,180)',
-                borderColor: 'rgb(70,130,180)',
-                data: waterTemperature
-            }]
-        },
-        // Configuration options go here
-        options: {}
-    });
-    //swellDirection swellHeight swellPeriod waterTemperature airTemperature currentDirection currentSpeed wavePeriod seaLevel windSpeed
-
-
-    console.log(time);
-    console.log(swellValue);
-    console.log(mean);
-    console.log(waterTemperature);
-    console.log(airTemperature);
-    });
+    //Function showing the day condition on change
+    function showDayCondition(){
+        var td_list = document.getElementsByTagName("td");
+        for(var i=td_list.length-1; i>=0; i--){
+        var td = td_list[i];
+        td.parentNode.removeChild(td);
+    }
+        var day = document.getElementById("mySelect").value;
+        var i;
+        switch(day){
+            case "Lundi":
+            i = 0 ;
+            break;
+            case "Mardi":
+            i = 4 ;
+            break;
+            case "Mercredi":
+            i = 8 ;
+            break;
+            case "Jeudi":
+            i = 12 ;
+            break;
+            case "Vendredi":
+            i = 16 ;
+            break;
+            case "Samedi":
+            i = 20 ;
+            break;
+            case "Dimanche":
+            i = 24 ;
+            break;
+        }
+        var j = i+4 ;
+        var k = 1 ;
+        var table = document.getElementById("dayData");
+        for(i ; i < j ; i++){
+            var row = table.insertRow(k);
+            var time = row.insertCell(0);
+            time.innerHTML = this.time[i];
+            var swellHeight = row.insertCell(1);
+            swellHeight.innerHTML = this.swellHeight[i] + " m";
+            var swellDirection = row.insertCell(2);
+            swellDirection.innerHTML = this.swellDirection[i] + "°";
+            var swellPeriod = row.insertCell(3);
+            swellPeriod.innerHTML = this.swellPeriod[i] + " s";
+            var currentDirection = row.insertCell(4);
+            currentDirection.innerHTML = this.currentDirection[i] + "°";
+            var wavePeriod = row.insertCell(5);
+            wavePeriod.innerHTML = this.wavePeriod[i] + " s";
+            var seaLevel = row.insertCell(6);
+            seaLevel.innerHTML = this.seaLevel[i];
+            var windSpeed = row.insertCell(7);
+            windSpeed.innerHTML = this.windSpeed[i] + " km/h";
+            var waterTemperature = row.insertCell(8);
+            waterTemperature.innerHTML = this.waterTemperature[i] + "°C";
+            var airTemperature = row.insertCell(9);
+            airTemperature.innerHTML = this.airTemperature[i] + "°C";
+            k++;
+        }
+    }
+    //End of fonction
     </script>
 {% endblock %}
