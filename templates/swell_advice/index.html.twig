@@ -35,6 +35,7 @@ function myFunction() {
             li = document.createElement("li");
             li.setAttribute("id", tab[i]);
             text = document.createTextNode(tab[i]);
+            a = document.createElement("a");
             a.appendChild(text);
             a.href = "/city/" + tab[i];
             li.appendChild(a);
