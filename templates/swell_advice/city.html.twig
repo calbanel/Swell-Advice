@@ -2,7 +2,8 @@
 
 {% block body %}
 <body class = "background">
-<div class = "box"> 
+<nav class="box" id="navbar-example2" class="navbar navbar-light bg-light">
+
 {% for spot in city.spots %}
 <a href="/spot/{{spot.id}}"> {{spot.name}} </a>  
 {% endfor %}
