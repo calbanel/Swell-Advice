@@ -29,6 +29,7 @@ function myFunction() {
     ul = document.getElementById("liste"); // recupère la liste
 
     var tab = JSON.parse('{{ cities|json_encode|raw}}'); // Initialisation des valeurs du tableau
+    console.log(tab);
 
 
     for (i = 0; i < tab.length; i++) {
