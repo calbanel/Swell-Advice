@@ -22,17 +22,11 @@
 <script>
 function myFunction() {
     var input, text, filter, ul, a, li, i, txtValue; // Initialisation des valeurs
-
     input = document.getElementById("myInput"); // recupère l'inpute de la bar de recherche
-
     filter = input.value.toUpperCase(); // recupère la valeur de la bar de recherche
-
     ul = document.getElementById("liste"); // recupère la liste
-
     var tab = {{ cities | json_encode() | raw }};// Initialisation des valeurs du tableau
     console.log(tab);
-
-
     for (i = 0; i < tab.length; i++) {
             li = document.createElement("li");
             li.setAttribute("id", tab[i]);
@@ -43,7 +37,6 @@ function myFunction() {
             li.appendChild(a);
             li.style.display = "none";
     		ul.appendChild(li);
-
     }
     if (filter != ""){
 	    for (i = 0; i < tab.length; i++) {
@@ -60,11 +53,9 @@ function myFunction() {
     	for (i = 0; i < tab.length; i++) {
             li = document.getElementById(tab[i]);
             li.style.display = "none";
-
     	}
     }
 }
-
 </script>
 </div>
 <br/>
@@ -73,11 +64,17 @@ function myFunction() {
 </center>
 
 <script>
+<<<<<<< Updated upstream
 
 function kill() {
     
 }
 
+=======
+function kill() {
+
+}
+>>>>>>> Stashed changes
 </script>
 
 <img id="imgBlack" src="{{ asset('img/black.png') }}" alt="blackAmongUs" width="100" height="145" onclick="kill()">
