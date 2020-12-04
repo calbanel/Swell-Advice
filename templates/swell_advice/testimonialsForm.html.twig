@@ -2,57 +2,58 @@
 
 {% block body %}
 
-
+  <div class="row">
+    <div class="col-offset-2 col-md-8">
 		 {{ form_start(testimonialsFormView, {'attr': {'novalidate': 'novalidate'}}) }}
 
     <div class="form-group">
  			{{form_label(testimonialsFormView.surferName)}}
- 			{{form_widget(testimonialsFormView.surferName)}}
+ 			{{form_widget(testimonialsFormView.surferName, {'attr': {'class': 'form-control'}})}}
  		</div>
 
 		<div class="form-group">
 			{{form_label(testimonialsFormView.date)}}
-			{{form_widget(testimonialsFormView.date)}}
+			{{form_widget(testimonialsFormView.date, {'attr': {'class': 'form-control'}})}}
 		</div>
 
 		<div class="form-group">
 			{{form_label(testimonialsFormView.duration)}}
-		 	{{form_widget(testimonialsFormView.duration)}}
+		 	{{form_widget(testimonialsFormView.duration, {'attr': {'class': 'form-control'}})}}
 		</div>
 
     <div class="form-group">
 			{{form_label(testimonialsFormView.spot)}}
-		 	{{form_widget(testimonialsFormView.spot)}}
+		 	{{form_widget(testimonialsFormView.spot, {'attr': {'class': 'form-control'}})}}
 		</div>
 
 		<div class="form-group">
 			{{form_label(testimonialsFormView.pollution)}}
-		 	{{form_widget(testimonialsFormView.pollution)}}
+		 	{{form_widget(testimonialsFormView.pollution, {'attr': {'class': 'form-control'}})}}
 		</div>
 
 		<div class="form-group">
 			{{form_label(testimonialsFormView.swimmerNb)}}
-		 	{{form_widget(testimonialsFormView.swimmerNb)}}
+		 	{{form_widget(testimonialsFormView.swimmerNb, {'attr': {'class': 'form-control'}})}}
 		</div>
 
     <div class="form-group">
 			{{form_label(testimonialsFormView.fishingBoatNb)}}
-		 	{{form_widget(testimonialsFormView.fishingBoatNb)}}
+		 	{{form_widget(testimonialsFormView.fishingBoatNb, {'attr': {'class': 'form-control'}})}}
 		</div>
 
     <div class="form-group">
 			{{form_label(testimonialsFormView.leisureBoatNb)}}
-		 	{{form_widget(testimonialsFormView.leisureBoatNb)}}
+		 	{{form_widget(testimonialsFormView.leisureBoatNb, {'attr': {'class': 'form-control'}})}}
 		</div>
 
     <div class="form-group">
 			{{form_label(testimonialsFormView.sailingBoatNb)}}
-		 	{{form_widget(testimonialsFormView.sailingBoatNb)}}
+		 	{{form_widget(testimonialsFormView.sailingBoatNb, {'attr': {'class': 'form-control'}})}}
 		</div>
 
     <div class="form-group">
 			{{form_label(testimonialsFormView.others)}}
-		 	{{form_widget(testimonialsFormView.others)}}
+		 	{{form_widget(testimonialsFormView.others, {'attr': {'class': 'form-control'}})}}
 		</div>
 
 
@@ -63,8 +64,10 @@
 		 <button type="submit" class="btn btn-dark">Valider</button>
 
 		 {{form_end(testimonialsFormView)}}
+     </div>
+     </div>
 
-		 
+
 
 
 
