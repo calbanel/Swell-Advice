@@ -1,13 +1,6 @@
 
 .box {
     border: 1px solid black;
-    position:  absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin:auto;
-    width: 300px;
     background-color: white;
     padding: 12px;
 }
@@ -40,4 +33,17 @@
     text-align: center;
     color: white;
     padding-bottom: 50px;
+}
+
+.center {
+        position:  absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin:auto;
+        width: 300px;
+        padding: 12px;
+        display: block;
+        height: 500px;
 }

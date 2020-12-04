@@ -2,12 +2,14 @@
 
 {% block body %}
 <body class="background"> 
-<div class = "box">
+<div class = "center">
 <h1 class="titleCity">{{city.name}}</h1>
+<div class = "box">
 {% for spot in city.spots %}
 <a href="/spot/{{spot.id}}"> {{spot.name}} </a>  
 {% endfor %}
 <button type="button" href="/" class="btn btn-light">Retour</button>
+</div>
 </div>
 
 
