@@ -4,10 +4,16 @@
 <div class="row">
   <div class="col-offset-1 col-md-10">
     <div class="col-md-8">
-      <canvas id="myChart"></canvas>
+      <canvas id="swellHeightChart"></canvas>
     </div>
     <div class="col-md-4">
-      
+
+    </div>
+    <div class="col-md-8">
+      <canvas id="airAndWaterTemperature"></canvas>
+    </div>
+    <div class="col-md-4">
+
     </div>
   </div>
 </div>
@@ -98,13 +104,13 @@
         options: {}
     });
     //swellDirection swellHeight swellPeriod waterTemperature airTemperature currentDirection currentSpeed wavePeriod seaLevel windSpeed
-    
+
 
     console.log(time);
     console.log(swellValue);
     console.log(mean);
     console.log(waterTemperature);
-    console.log(airTemperature);    
+    console.log(airTemperature);
     });
     </script>
 {% endblock %}
