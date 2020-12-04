@@ -21,7 +21,7 @@
 {% for city in cities %}
 {{city.name}}
 {% endfor %}
-<div id="data-cities" data-cities="{{ cities|json_encode|e('html_attr') }}">
+<div id="data-cities" data-cities="{{ cities|json_encode }}">
     <!-- ... -->
 </div>
 <script>
@@ -34,7 +34,7 @@ function myFunction() {
 
     ul = document.getElementById("liste"); // recupère la liste
 
-    var tab =  document.querySelector("#data-cities").dataset.cities.innerHTML;// Initialisation des valeurs du tableau
+    var tab =  document.querySelector("#data-cities").dataset.cities;// Initialisation des valeurs du tableau
     console.log(tab);
 
 
