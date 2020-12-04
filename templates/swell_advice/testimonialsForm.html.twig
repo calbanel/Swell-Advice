@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<body style="background-image:url("{{ asset('img/logo2.png') }}")">
+<body style="background-image:url("/img/logo2.png")">
 <div class="container-fluid">
   <div class="row">
-  <h1 style="text-align:center;">Renseignez-nous</h1>
+
     <div class="offset-md-3 col-md-6" style="backgroundColor:white;">
+      <h1 style="text-align:center;">Renseignez-nous</h1>
       <div class="col-md-12">
 		 {{ form_start(testimonialsFormView, {'attr': {'novalidate': 'novalidate'}}) }}
 
