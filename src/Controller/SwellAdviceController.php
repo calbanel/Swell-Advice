@@ -9,6 +9,8 @@ use App\Repository\SpotRepository;
 use App\Entity\Spot;
 use App\Repository\TestimonialsRepository;
 use App\Entity\Testimonials;
+use App\Repository\CityRepository;
+use App\Entity\City;
 use App\Form\TestimonialsType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -80,9 +82,8 @@ class SwellAdviceController extends AbstractController
     public function city($name)
     {
       $repositoryCity=$this->getDoctrine()->getRepository(City::class);
-      $spot = $repositoryCity->findByName($name);
+      $city = $repositoryCity->findByName($name);
 
-        return $this->render('swell_advice/city.html.twig', 'name' => $name
-        ]);
+        return $this->render('swell_advice/city.html.twig', ['city' => $city]);
     }
 }
